@@ -4,3 +4,4 @@ spring:
       base-path: /api/v1
 logging:
   level: debug
+

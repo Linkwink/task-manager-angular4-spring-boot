@@ -13,8 +13,9 @@ public class TaskMapper {
                 task.getId(),
                 task.getName(),
                 task.isDone(),
-                task.getDeadLineTmstmp(),
-                task.getOrder()
+                task.getDeadLineTime(),
+                task.getOrder(),
+                task.getTproject().getId()
         );
     }
 
@@ -23,7 +24,7 @@ public class TaskMapper {
                 task.getId(),
                 task.getName(),
                 task.isDone(),
-                task.getDeadLineTmstmp(),
+                task.getDeadLineTime(),
                 task.getOrder()
         );
     }

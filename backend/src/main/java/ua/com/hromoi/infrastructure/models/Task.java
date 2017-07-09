@@ -1,6 +1,7 @@
 package ua.com.hromoi.infrastructure.models;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * Created by Viacheslav_Khromoi on 02.07.2017.
@@ -17,7 +18,7 @@ public class Task {
 
     private boolean isDone;
 
-    private long deadLineTmstmp;
+    private LocalDateTime deadLineTime;
 
     @Column(name="orderInList")
     private int order;
@@ -28,10 +29,10 @@ public class Task {
     public Task() {
     }
 
-    public Task(String name, boolean isDone, long deadLine, int order) {
+    public Task(String name, boolean isDone, LocalDateTime deadLine, int order) {
         this.name = name;
         this.isDone = isDone;
-        this.deadLineTmstmp = deadLine;
+        this.deadLineTime = deadLine;
         this.order = order;
     }
 
@@ -59,12 +60,12 @@ public class Task {
         isDone = done;
     }
 
-    public long getDeadLineTmstmp() {
-        return deadLineTmstmp;
+    public LocalDateTime getDeadLineTime() {
+        return deadLineTime;
     }
 
-    public void setDeadLineTmstmp(long deadLineTmstmp) {
-        this.deadLineTmstmp = deadLineTmstmp;
+    public void setDeadLineTime(LocalDateTime deadLineTime) {
+        this.deadLineTime = deadLineTime;
     }
 
     public int getOrder() {

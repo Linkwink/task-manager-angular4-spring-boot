@@ -11,7 +11,7 @@ public class Validator {
 
     public static boolean isValid(Task task) {
         int length = task.getName().length();
-        return (length  >= FieldConstraints.Task.NAME_MIN_LENGTH && length <= FieldConstraints.Task.NAME_MAX_LENGTH) && TimestampValidator.isValid(task.getDeadLineTmstmp());
+        return (length  >= FieldConstraints.Task.NAME_MIN_LENGTH && length <= FieldConstraints.Task.NAME_MAX_LENGTH) && TimestampValidator.isValid(task.getDeadLineTime());
     }
 
     public static boolean isValid(Project project) {

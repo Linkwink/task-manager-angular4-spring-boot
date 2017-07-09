@@ -63,12 +63,12 @@ public class TaskServiceImp implements TaskService {
         Task taskWithSameName = taskRepository.findByNameIgnoreCase(newEntity.getName());
 
         if (task == null && taskWithSameName == null) {
-            task = new Task(newEntity.getName(),newEntity.isDone(),newEntity.getDeadLineTmstmp(), newEntity.getOrder());
+            task = new Task(newEntity.getName(),newEntity.isDone(),newEntity.getDeadLineTime(), newEntity.getOrder());
             task.setTproject(project);
         } else if (task != null && (taskWithSameName == null || task.getId() == taskWithSameName.getId())) {
             task.setOrder(newEntity.getOrder());
             task.setName(newEntity.getName());
-            task.setDeadLineTmstmp(newEntity.getDeadLineTmstmp());
+            task.setDeadLineTime(newEntity.getDeadLineTime());
             task.setDone(newEntity.isDone());
         } else {
             throw new EntityAlreadyExistsException(Task.class.getSimpleName());

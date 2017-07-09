@@ -1,6 +1,8 @@
 package ua.com.hromoi.domain.utils;
 
-import java.sql.Timestamp;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 
 /**
@@ -8,8 +10,9 @@ import java.sql.Timestamp;
  */
 public class TimestampValidator {
 
-    public static boolean isValid(Long timestamp) {
-        Timestamp currTimestamp = new Timestamp(System.currentTimeMillis());
-        return (currTimestamp.getTime() >= timestamp)? true : false;
+    public static boolean isValid(LocalDateTime dateTime) {
+        ZoneId zoneId = ZoneId.systemDefault();
+        LocalDateTime nowTime = LocalDateTime.now(zoneId);
+        return (nowTime.atZone(zoneId).toEpochSecond() >= dateTime.atZone(zoneId).toEpochSecond())? true : false;
     }
 }
