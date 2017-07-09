@@ -1,0 +1,11 @@
+<md-list-item>
+  <md-checkbox [(ngModel)]="checked"></md-checkbox>
+  <div class="list-item-content" [ngClass]="{'completed': checked}">
+    <span>My list item test</span>
+  </div>
+  <div class="list-item-actions">
+    <button md-icon-button  color="accent" [disabled]="checked"><md-icon>mode_edit</md-icon></button>
+    <button md-icon-button  color="accent" [disabled]="checked"><md-icon>delete</md-icon></button>
+    <app-order-switcher [disabled]="checked"></app-order-switcher>
+  </div>
+</md-list-item>

@@ -1,0 +1,24 @@
+md-list-item:hover {
+  background: rgba(25, 118, 210, 0.18);
+  cursor: pointer;
+}
+md-list-item {
+  display: flex;
+  border-bottom: 1px solid #cacaca;
+  transition: background 0.4s;
+  md-checkbox {
+    width: 5%;
+    padding-right: 10px;
+  }
+  .list-item-content {
+    width: 75%;
+    text-align: left;
+  }
+  .list-item-actions {
+    width: 15%;
+    display: flex;
+  }
+  .completed {
+    text-decoration:line-through
+  }
+}

@@ -1,0 +1,6 @@
+<md-list *ngIf="project.tasks.length">
+  <app-task></app-task>
+</md-list>
+<div *ngIf="!project.tasks.length" class="task-empty-warning">
+  <p>Tasks not found! Add new one!</p>
+</div>

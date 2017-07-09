@@ -1,0 +1,25 @@
+<md-toolbar color="primary">
+  <md-icon class="project-logo">assignment</md-icon>
+  <md-input-container *ngIf="isEdit">
+    <input mdInput [(ngModel)]="projectName"  focused required [maxlength]="projectConstraints.MAX_LENGTH" [minlength]="projectConstraints.MIN_LENGTH">
+  </md-input-container>
+  <span class="project-title" *ngIf="!isEdit">{{project.name}}</span>
+
+  <span class="spacer"></span>
+  <div *ngIf="isEdit">
+    <button md-icon-button (click)="saveChanges()" [disabled]="(projectName.length > projectConstraints.MIN_LENGTH && projectName.length <= projectConstraints.MAX_LENGTH )? false : true">
+      <md-icon>save</md-icon>
+    </button>
+    <button md-icon-button (click)="resetChanges()">
+      <md-icon>not_interested</md-icon>
+    </button>
+  </div>
+  <div *ngIf="!isEdit">
+    <button md-icon-button (click)="switchEdit()">
+      <md-icon>mode_edit</md-icon>
+    </button>
+    <button md-icon-button (click)="confirmRemove()">
+      <md-icon>delete</md-icon>
+    </button>
+  </div>
+</md-toolbar>

@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <span>Create new project</span>
+  <span class="spacer"></span>
+  <md-icon (click)="confirmClose()">close</md-icon>
+</div>
+<md-dialog-content>
+  <div>
+    <md-input-container>
+      <input mdInput  [(ngModel)]="projectName" required  placeholder="Enter project name" [maxlength]="projectConstraints.MAX_LENGTH" [minlength]="projectConstraints.MIN_LENGTH">
+      <md-hint align="end">{{projectName.length}} / {{projectConstraints.MAX_LENGTH}}</md-hint>
+    </md-input-container>
+  </div>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-raised-button [disabled]="!(projectName.length >= projectConstraints.MIN_LENGTH)" [md-dialog-close]="true" (click)="createProject()">Create</button>
+</md-dialog-actions>
+
+

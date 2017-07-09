@@ -1,0 +1,11 @@
+div {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+
+  button {
+    width: 17px;
+    height: 17px;
+    line-height: 5px;
+  }
+}
