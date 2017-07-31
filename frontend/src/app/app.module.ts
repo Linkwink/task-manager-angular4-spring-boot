@@ -8,7 +8,7 @@ import {
 import {AppComponent} from './shared/components/app/app.component';
 import {TaskComponent} from './shared/components/task/task.component';
 import {ProjectComponent} from './shared/components/project/project.component';
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import 'hammerjs';
 import {ProjectHeaderComponent} from './shared/components/project/shared/project-header/project-header.component';
 import {ProjectTaskListComponent} from './shared/components/project/shared/project-task-list/project-task-list.component';
@@ -16,11 +16,13 @@ import {ProjectTaskGeneratorComponent} from './shared/components/project/shared/
 import {AppToolbarComponent} from './shared/components/app/shared/app-toolbar/app-toolbar.component';
 import {ProjectNewModalComponent} from './shared/components/project/shared/project-new-modal/project-new-modal.component';
 import {OrderSwitcherComponent} from './shared/components/task/shared/order-switcher/order-switcher.component';
-import {HttpModule} from "@angular/http";
+import {HttpModule} from '@angular/http'
 import {StompConfig, StompService} from '@stomp/ng2-stompjs';
-import {Stomp} from "./config/stomp.config";
-import {FormsModule} from "@angular/forms";
-import {Md2Module} from "md2";
+import {Stomp} from './config/stomp.config'
+import {FormsModule} from '@angular/forms'
+import {Md2Module} from 'md2'
+import { OrderByPipe } from './pipes/order-by/order-by.pipe';
+import {TimeToDeadlinePipe} from "./pipes/time-to-deadline/time-to-deadline.pipe";
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import {Md2Module} from "md2";
     AppToolbarComponent,
     ProjectNewModalComponent,
     OrderSwitcherComponent,
+    OrderByPipe,
+    TimeToDeadlinePipe,
 
   ],
   imports: [

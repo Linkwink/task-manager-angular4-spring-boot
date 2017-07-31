@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-
+import {Component, OnInit, Input} from '@angular/core';
+import {Task} from "../../../models/task.model";
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -7,7 +7,8 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TaskComponent implements OnInit {
 
-  checked: boolean = false;
+  @Input() task: Task;
+  public checked: boolean = false;
 
   constructor() {
   }

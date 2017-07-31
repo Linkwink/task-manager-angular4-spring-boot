@@ -1,5 +1,7 @@
 package ua.com.hromoi.infrastructure.models;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -18,6 +20,7 @@ public class Task {
 
     private boolean isDone;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime deadLineTime;
 
     @Column(name="orderInList")

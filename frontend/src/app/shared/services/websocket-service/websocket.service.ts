@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {StompService} from '@stomp/ng2-stompjs';
-import {constants} from "../../../constants/app.contstant";
+import {constants} from '../../../constants/app.contstant';
 
 @Injectable()
 export class WebsocketService {

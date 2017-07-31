@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
-import {BaseService} from "../BaseService.interface";
-import {constants} from "../../../constants/app.contstant";
-import {Project} from "../../../models/project.model";
+import {Http} from '@angular/http'
+import {BaseService} from '../BaseService.interface'
+import {constants} from '../../../constants/app.contstant'
+import {Project} from '../../../models/project.model'
 import 'rxjs/add/operator/toPromise';
-import {ErrorService} from "../error-service/error.service";
+import {ErrorService} from '../error-service/error.service'
 
 @Injectable()
 export class ProjectService implements BaseService {

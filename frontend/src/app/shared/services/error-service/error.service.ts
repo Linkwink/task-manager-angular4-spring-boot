@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Response} from "@angular/http";
-import {Observable} from "rxjs";
+import {Response} from '@angular/http';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ErrorService {

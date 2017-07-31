@@ -3,7 +3,7 @@
     <input mdInput placeholder="Start typing here to create task" [(ngModel)]="newTask.name" [maxlength]="taskConstraints.MAX_LENGTH" [minlength]="taskConstraints.MIN_LENGTH">
     <md-hint align="end">{{newTask.name.length}} / {{taskConstraints.MAX_LENGTH}}</md-hint>
   </md-input-container>
-  <md2-datepicker type="datetime" [(ngModel)]="newTask.deadLineTime" placeholder="Deadline for task"></md2-datepicker>
+  <md2-datepicker type="datetime"  [min]="minDeadlineTime" [(ngModel)]="newTask.deadLineTime" placeholder="Deadline for task"></md2-datepicker>
   <button md-raised-button color="accent" [disabled]="!(newTask.name.length >= taskConstraints.MIN_LENGTH)" (click)="addTask()">Add task</button>
 </div>
 

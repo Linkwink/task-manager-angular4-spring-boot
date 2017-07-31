@@ -21,4 +21,10 @@ md-list-item {
   .completed {
     text-decoration:line-through
   }
+  .task-deadline {
+    font-size: 9pt;
+    position: absolute;
+    margin-top: 2px;
+    color: #989494;
+  }
 }

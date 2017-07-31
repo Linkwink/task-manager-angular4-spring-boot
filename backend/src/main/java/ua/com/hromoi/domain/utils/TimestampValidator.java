@@ -11,8 +11,8 @@ import java.time.ZoneId;
 public class TimestampValidator {
 
     public static boolean isValid(LocalDateTime dateTime) {
-        ZoneId zoneId = ZoneId.systemDefault();
-        LocalDateTime nowTime = LocalDateTime.now(zoneId);
-        return (nowTime.atZone(zoneId).toEpochSecond() >= dateTime.atZone(zoneId).toEpochSecond())? true : false;
+        ZoneId zoneId = ZoneId.of("Etc/GMT+3");
+        LocalDateTime nowTime = LocalDateTime.now();
+        return (nowTime.atZone(zoneId).toEpochSecond() <= dateTime.atZone(zoneId).toEpochSecond())? true : false;
     }
 }

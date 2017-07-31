@@ -1,10 +1,10 @@
 import {Component, EventEmitter, Input, OnInit} from '@angular/core';
-import {SnackBar} from "../../../../../config/snackbar.config";
-import {MdSnackBar} from "@angular/material";
-import {WebsocketService} from "../../../../services/websocket-service/websocket.service";
-import {Project} from "../../../../../models/project.model";
-import {constants} from "../../../../../constants/app.contstant";
-import {ProjectService} from "../../../../services/project-service/project.service";
+import {SnackBar} from '../../../../../config/snackbar.config';
+import {MdSnackBar} from '@angular/material';
+import {WebsocketService} from '../../../../services/websocket-service/websocket.service';
+import {Project} from '../../../../../models/project.model';
+import {constants} from '../../../../../constants/app.contstant';
+import {ProjectService} from '../../../../services/project-service/project.service';
 
 
 @Component({
@@ -21,7 +21,7 @@ export class ProjectHeaderComponent implements OnInit {
 
 
   public isEdit = false;
-  public projectName = "";
+  public projectName = '';
   public projectConstraints = constants.FIELDS_CONSTRAINTS.PROJECT;
 
   constructor(private snackBar: MdSnackBar,
@@ -40,7 +40,7 @@ export class ProjectHeaderComponent implements OnInit {
         if (isNaN(resp)) {
           // error object
         } else {
-          this.snackBar.open("Changes was saved successfully!", null, {duration: 5000});
+          this.snackBar.open('Changes was saved successfully!', null, {duration: 5000});
           this.websocketService.getNewProject(resp);
         }
       }))
@@ -48,7 +48,7 @@ export class ProjectHeaderComponent implements OnInit {
 
   resetChanges() {
     this.isEdit = !this.isEdit;
-    this.projectName = "";
+    this.projectName = '';
   }
 
   switchEdit() {
@@ -58,7 +58,7 @@ export class ProjectHeaderComponent implements OnInit {
 
   confirmRemove() {
     this.snackBar
-      .open("Remove this project?", "Confirm", SnackBar.config)
+      .open('Remove this project?', 'Confirm', SnackBar.config)
       .onAction()
       .subscribe(() => this.websocketService.removeProject(this.project.id));
   }

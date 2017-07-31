@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.com.hromoi.dao.repositories.ProjectRepository;
 import ua.com.hromoi.dao.repositories.TaskRepository;
+import ua.com.hromoi.domain.utils.TimestampValidator;
 import ua.com.hromoi.domain.utils.Validator;
 import ua.com.hromoi.infrastructure.domain.TaskService;
 import ua.com.hromoi.infrastructure.exceptions.EntityAlreadyExistsException;
@@ -63,7 +64,7 @@ public class TaskServiceImp implements TaskService {
         Task taskWithSameName = taskRepository.findByNameIgnoreCase(newEntity.getName());
 
         if (task == null && taskWithSameName == null) {
-            task = new Task(newEntity.getName(),newEntity.isDone(),newEntity.getDeadLineTime(), newEntity.getOrder());
+            task = new Task(newEntity.getName(), newEntity.isDone(), newEntity.getDeadLineTime(), newEntity.getOrder());
             task.setTproject(project);
         } else if (task != null && (taskWithSameName == null || task.getId() == taskWithSameName.getId())) {
             task.setOrder(newEntity.getOrder());
@@ -75,7 +76,11 @@ public class TaskServiceImp implements TaskService {
         }
 
         if (Validator.isValid(task)) {
-            task = taskRepository.save(task);
+            if (TimestampValidator.isValid(task.getDeadLineTime())) {
+                task = taskRepository.save(task);
+            } else{
+                throw new InvalidDataException(Task.class.getSimpleName(), Arrays.asList("deadLineTime"));
+            }
         } else {
             throw new InvalidDataException(Task.class.getSimpleName(), Arrays.asList("name"));
         }

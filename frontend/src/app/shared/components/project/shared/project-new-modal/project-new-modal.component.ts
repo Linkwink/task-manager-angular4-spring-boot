@@ -1,11 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {MdDialog, MdSnackBar} from "@angular/material";
-import {SnackBar} from "../../../../../config/snackbar.config";
-import {ProjectService} from "app/shared/services/project-service/project.service";
-import {Project} from "../../../../../models/project.model";
-import {constants} from "../../../../../constants/app.contstant";
-import {ErrorService} from "../../../../services/error-service/error.service";
-import {WebsocketService} from "../../../../services/websocket-service/websocket.service";
+import {MdDialog, MdSnackBar} from '@angular/material'
+import {SnackBar} from '../../../../../config/snackbar.config'
+import {ProjectService} from 'app/shared/services/project-service/project.service'
+import {Project} from '../../../../../models/project.model'
+import {constants} from '../../../../../constants/app.contstant'
+import {ErrorService} from '../../../../services/error-service/error.service'
+import {WebsocketService} from '../../../../services/websocket-service/websocket.service'
 
 @Component({
   selector: 'project-new-modal',
@@ -15,8 +15,8 @@ import {WebsocketService} from "../../../../services/websocket-service/websocket
 })
 export class ProjectNewModalComponent {
 
-  projectName = "";
-  projectConstraints = constants.FIELDS_CONSTRAINTS.PROJECT;
+  public projectName = '';
+  public projectConstraints = constants.FIELDS_CONSTRAINTS.PROJECT;
 
 
   constructor(private projectService: ProjectService,
@@ -28,7 +28,7 @@ export class ProjectNewModalComponent {
 
   confirmClose() {
     this.snackBar
-      .open("Cancel creation?", "Confirm", SnackBar.config)
+      .open('Cancel creation?', 'Confirm', SnackBar.config)
       .onAction()
       .subscribe(() => this.dialog.closeAll());
   }
@@ -40,7 +40,7 @@ export class ProjectNewModalComponent {
         if (isNaN(resp)) {
           // error object
         } else {
-          this.snackBar.open("Success!", null,{ duration : 5000 });
+          this.snackBar.open('Success!', null,{ duration : 5000 });
           this.websocketService.getNewProject(resp);
         }
       }))

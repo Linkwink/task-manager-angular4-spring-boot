@@ -1,11 +1,12 @@
 <md-list-item>
-  <md-checkbox [(ngModel)]="checked"></md-checkbox>
-  <div class="list-item-content" [ngClass]="{'completed': checked}">
-    <span>My list item test</span>
+  <md-checkbox [(ngModel)]="task.isDone"></md-checkbox>
+  <div class="list-item-content" [ngClass]="{'completed': task.isDone}">
+    <span>{{task.name}}</span><br>
+    <span class="task-deadline">Deadline: {{task.deadLineTime | timeToDeadline}}</span>
   </div>
   <div class="list-item-actions">
-    <button md-icon-button  color="accent" [disabled]="checked"><md-icon>mode_edit</md-icon></button>
-    <button md-icon-button  color="accent" [disabled]="checked"><md-icon>delete</md-icon></button>
-    <app-order-switcher [disabled]="checked"></app-order-switcher>
+    <button md-icon-button  color="accent" [disabled]="task.isDone"><md-icon>mode_edit</md-icon></button>
+    <button md-icon-button  color="accent" [disabled]="task.isDone"><md-icon>delete</md-icon></button>
+    <app-order-switcher [disabled]="task.isDone"></app-order-switcher>
   </div>
 </md-list-item>
